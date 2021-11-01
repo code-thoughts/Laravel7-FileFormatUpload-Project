@@ -21,20 +21,38 @@
   font-size: 16px;">ExportPdf</button> </a>
 </div><br> 
 <div>
-<table align="center" width="500px">
+<!--code was edited 2 November 2021,to make the pdf look more presentable -->
+<table align="center" width="500px" border="0">
   <thead>
-    <th>ID</th>
-    <th>Sell</th>
-    <th>List</th>
-    <th>Living</th>
-    <th>Rooms</th>
-    <th>Beds</th>
-    <th>Baths</th>
-    <th>Age</th>
-    <th>Acres</th>
-    <th>Taxes</th>
+    <th scope="col">ID</th>
+    <th scope="col">Sell</th>
+    <th scope="col">List</th>
+    <th scope="col">Living</th>
+    <th scope="col">Rooms</th>
+    <th scope="col">Beds</th>
+    <th scope="col">Baths</th>
+    <th scope="col">Age</th>
+    <th scope="col">Acres</th>
+    <th scope="col">Taxes</th> 
   </thead>
   <tbody>
+     <!-- //for the rows are less than 40 -->
+     @php
+        $rowCount = 0;
+      @endphp
+
+   <tr>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
     @foreach($shows as $show)
     <tr>
       <td>{{$show->id}}</td>
@@ -47,10 +65,30 @@
       <td>{{$show->Age}}</td>
       <td>{{$show->Acres}}</td>
       <td>{{$show->Taxes}}</td>
-    
     </tr>
+    @php
+        $rowCount++;
+        if($rowCount==37)
+        {
+          $rowCount=0;
+         echo " <tr> ";
+         echo " <td>&nbsp;</td>";
+         echo "<td>&nbsp;</td>";
+         echo "<td>&nbsp;</td> ";
+         echo " <td>&nbsp;</td>";
+         echo "<td>&nbsp;</td>";
+         echo " <td>&nbsp;</td>";
+         echo " <td>&nbsp;</td>";
+         echo " <td>&nbsp;</td>";
+         echo "<td>&nbsp;</td>";
+         echo "<td>&nbsp;</td>";
+         echo " </tr> ";
+        }
+      @endphp
+      
     @endforeach
   </tbody>
 </table>
+
 </div>
 @endsection
