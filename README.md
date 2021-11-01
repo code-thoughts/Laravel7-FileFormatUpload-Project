@@ -42,4 +42,11 @@ As many of the components as possible should follow the reusable design pattern.
 4.Adjustments can be made for a particular file as it comes, or what ever the standard is used and needed at that time.<br>
 5.Example in the case of csv, comma separated value file, first line is almost always the headings , as the file is being read, you can get the number of fields as well as the number of rows.
 While the rows are being counted, use the first row to create the table fields/columns including the id field, then go to the second row and start to insert data(I say insert, but it is more updating were the id is equal to the row you are inserting into) from the second column, where the id is the row number which you have to declare at the beginning.  using a for loop you insert data in the different fields starting from column 1 for every row not column 0(id), while iteration.<br>
-<b>Still working on improving this answer abit more</b>
+<b>Still working on improving this answer abit more</b><br>
+
+<b>02 November 2021</b>
+<i>Made a change to one of the blades exporting pdf from view List.blade.php,data was not correctly aligned.<br>
+with first row and row printed on following page not aligned.
+  <b>Logic</b>,<br>to see the number of rows that each page could accommodate before printing on next page.
+I made the first row empty before the foreach and added an if statement to check once the certain number of rows was reached and then after which another empty row was added going to the next page of the pdf, so that all rows added would display correctly on pdf.working on more solutions.</i>
+
